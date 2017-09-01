@@ -4,22 +4,29 @@ let tileIds = [];
 let tilesReverted = 0;
 
 
-Array.prototype.shuffleTiles = function() {
-    let i = this.length, j, temp;
-    while(--i > 0) {
-        j = Math.floor(Math.random() * (i + 1));
-        temp = this[j];
-        this[j] = this[i];
-        this[i] = temp;
-    } 
-}
+// Array.prototype.shuffleTiles = function() {
+//     let i = this.length, j, temp;
+//     while(--i > 0) {
+//         j = Math.floor(Math.random() * (i + 1));
+//         temp = this[j];
+//         this[j] = this[i];
+//         this[i] = temp;
+//     } 
+// }
+
+function shuffleTiles (arr) {
+    return arr.sort(() => Math.random() - 0.5);
+  }
 
 function newGameBoard(array) {
     let output = '';
-    easyArray.shuffleTiles();
+    console.log(easyArray);
+    shuffleTiles(easyArray);
     for (let i = 0; i < easyArray.length; i++) {
         output += '<div id="title'+i+'" onclick="revertTile(this, \''+easyArray[i]+'\')"></div>';
     }
+    console.log(easyArray);
+    
     
     document.getElementById('gameBoard').innerHTML = output;
 }
