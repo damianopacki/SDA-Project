@@ -1,0 +1,18 @@
+#gameBoard {
+  background: #CCC;
+  border: #999 1px solid;
+  width: 800px;
+  height: 540px;
+  padding: 24px;
+  margin: 0 auto; }
+  #gameBoard div {
+    background: yellow;
+    border: #000 1px solid;
+    width: 71px;
+    height: 71px;
+    float: left;
+    margin: 10px;
+    padding: 20px;
+    font-size: 64px;
+    cursor: pointer;
+    text-align: center; }
