@@ -12,7 +12,7 @@ const memoryGame = {
     init: function() {
         if (memoryGame.difficulty === 'Easy') memoryGame.newGameBoard(memoryGame.easyArray);
         else if (memoryGame.difficulty === 'Medium') memoryGame.newGameBoard(memoryGame.mediumArray);
-        else (memoryGame.difficulty === 'Hard') memoryGame.newGameBoard(memoryGame.mediumArray);   
+        else memoryGame.newGameBoard(memoryGame.hardArray);   
     },
 
     shuffleTiles: function(array) {
