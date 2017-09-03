@@ -18,5 +18,17 @@ option {
 label {
   font-size: 18px; }
 
+#difficulties {
+  padding: 12px;
+  border: 2px solid #3b68af;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-left: 12px;
+  font-weight: bold;
+  outline: none; }
+  #difficulties option {
+    outline: none;
+    cursor: pointer; }
+
 #start {
   display: table; }
