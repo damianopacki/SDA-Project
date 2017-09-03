@@ -1,12 +1,18 @@
 const memoryGame = {
 
     easyArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
+    mediumArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'Ł', 'Ł', 'M', 'M', 'N', 'N', 'Ń', 'Ń', 'O', 'O', 'Ó', 'Ó', 'P', 'P'],
+    hardArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'Ł', 'Ł', 'M', 'M', 'N', 'N', 'Ń', 'Ń', 'O', 'O', 'Ó', 'Ó', 'P', 'P','A-hard', 'A-hard', 'B-hard', 'B-hard', 'C-hard', 'C-hard', 'D-hard', 'D-hard', 'E-hard', 'E-hard', 'F-hard', 'F-hard', 'G-hard', 'G-hard', 'H-hard', 'H-hard', 'A-1', 'A-1', 'B-1', 'B-1', 'C-1', 'C-1', 'D-1', 'D-1', 'E-1', 'E-1', 'F-1', 'F-1', 'G-1', 'G-1'],
     memoryValues: [],
     tileIds: [],
     tilesReverted: 0,
+    difficulty: localStorage.getItem('difficulty'),
+    
 
     init: function() {
-        memoryGame.newGameBoard(memoryGame.easyArray);
+        if (memoryGame.difficulty === 'Easy') memoryGame.newGameBoard(memoryGame.easyArray);
+        else if (memoryGame.difficulty === 'Medium') memoryGame.newGameBoard(memoryGame.mediumArray);
+        // else (memoryGame.difficulty === 'Medium') memoryGame.newGameBoard(memoryGame.mediumArray);   
     },
 
     shuffleTiles: function(array) {
@@ -68,3 +74,4 @@ const memoryGame = {
 }
 
 memoryGame.init();
+console.log(memoryGame.difficulty);
