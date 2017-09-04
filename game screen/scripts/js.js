@@ -7,28 +7,38 @@ const memoryGame = {
     tileIds: [],
     tilesReverted: 0,
     difficulty: localStorage.getItem('difficulty'),
-    
 
     init: function() {
-        if (memoryGame.difficulty === 'Easy') memoryGame.newGameBoard(memoryGame.easyArray);
-        else if (memoryGame.difficulty === 'Medium') memoryGame.newGameBoard(memoryGame.mediumArray);
-        else memoryGame.newGameBoard(memoryGame.hardArray);   
+        if (memoryGame.difficulty === 'Easy') memoryGame.createBoard(memoryGame.easyArray);
+        else if (memoryGame.difficulty === 'Medium') memoryGame.createBoard(memoryGame.mediumArray);
+        else memoryGame.createBoard(memoryGame.hardArray);   
     },
-
     shuffleTiles: function(array) {
         return array.sort(() => Math.random() - 0.5);
     },
-    newGameBoard: function(array) {
+    createBoard: function(array) {
         let output = '';
         console.log(memoryGame.easyArray);
         memoryGame.shuffleTiles(array);
         for (let i = 0; i < array.length; i++) {
-            output += '<div id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';
+            output += '<div class="tile" id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';       
         }
-        console.log(output);
-        console.log(array);
-        
+        console.log(array);     
         $('#gameBoard').html(output);
+        memoryGame.menageBoardRows(); 
+        
+    },
+    menageBoardRows: function() {
+        if (memoryGame.difficulty === 'Easy' && $('.tile').length % 4 === 0) {
+            console.log($('.tile').length);
+            output += '<div style="clear:both;"</div>';
+        }
+        else if (memoryGame.difficulty === 'Medium' && $('.tile').length % 6 === 0) {
+            output += '<div style="clear:both;"</div>';
+        }
+        else if (memoryGame.difficulty === 'Hard' && $('.tile').length % 8 === 0) {
+            output += '<div style="clear:both;"</div>';                    
+        } 
     },
     revertTile: function(tile, val) {
         if (tile.innerHTML === "" && memoryGame.memoryValues.length < 2) {
@@ -50,7 +60,7 @@ const memoryGame = {
                     if (memoryGame.tilesReverted === memoryGame.easyArray.length) {
                         alert('board cleared... generating new board');
                         $('#gameBoard').html('');
-                        memoryGame.newGameBoard(memoryGame.easyArray);
+                        memoryGame.createBoard(memoryGame.easyArray);
                     }
                 } else {
                     setTimeout(memoryGame.revertTileBack, 700);
