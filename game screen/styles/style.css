@@ -1,15 +1,24 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background-color: #242C33; }
+
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px; }
+
 #gameBoard {
-  background: #CCC;
-  border: #999 1px solid;
-  width: 800px;
-  height: 540px;
   padding: 24px;
-  margin: 0 auto; }
-  #gameBoard div {
-    background: yellow;
+  margin-top: 40px; }
+  #gameBoard .tile {
+    background: #1D6BBA;
     border: #000 1px solid;
-    width: 71px;
-    height: 71px;
+    width: 120px;
+    height: 120px;
     float: left;
     margin: 10px;
     padding: 20px;

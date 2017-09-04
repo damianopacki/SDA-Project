@@ -6,6 +6,7 @@ const memoryGame = {
     memoryValues: [],
     tileIds: [],
     tilesReverted: 0,
+    output: '',
     difficulty: localStorage.getItem('difficulty'),
 
     init: function() {
@@ -17,27 +18,24 @@ const memoryGame = {
         return array.sort(() => Math.random() - 0.5);
     },
     createBoard: function(array) {
-        let output = '';
-        console.log(memoryGame.easyArray);
         memoryGame.shuffleTiles(array);
         for (let i = 0; i < array.length; i++) {
-            output += '<div class="tile" id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';       
+            memoryGame.output += '<div class="tile" id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';   
+            memoryGame.manageBoardRows(i);      
         }
-        console.log(array);     
-        $('#gameBoard').html(output);
-        memoryGame.menageBoardRows(); 
-        
+        $('#gameBoard').html(memoryGame.output);
+        console.log('tile.length: ', $('.tile').length);      
     },
-    menageBoardRows: function() {
-        if (memoryGame.difficulty === 'Easy' && $('.tile').length % 4 === 0) {
-            console.log($('.tile').length);
-            output += '<div style="clear:both;"</div>';
+    manageBoardRows: function(index) {
+        console.log('test');
+        if (memoryGame.difficulty === 'Easy' &&  (index + 1) % 4 === 0) {
+            memoryGame.output += '<div style="clear:both;"></div>'; 
         }
-        else if (memoryGame.difficulty === 'Medium' && $('.tile').length % 6 === 0) {
-            output += '<div style="clear:both;"</div>';
+        else if (memoryGame.difficulty === 'Medium' && (index + 1) % 6 === 0) {
+            memoryGame.output += '<div style="clear:both;"></div>';
         }
-        else if (memoryGame.difficulty === 'Hard' && $('.tile').length % 8 === 0) {
-            output += '<div style="clear:both;"</div>';                    
+        else if (memoryGame.difficulty === 'Hard' && (index + 1) % 8 === 0 ) {
+            memoryGame.output += '<div style="clear:both;"></div>';                    
         } 
     },
     revertTile: function(tile, val) {
@@ -73,9 +71,9 @@ const memoryGame = {
         // Flip the 2 tiles back over 
         const tile1 = document.getElementById(memoryGame.tileIds[0]);
         const tile2 = document.getElementById(memoryGame.tileIds[1]);
-        tile1.style.background = 'yellow';
+        tile1.style.background = '#1D6BBA';
         tile1.innerHTML = "";
-        tile2.style.background = 'yellow';
+        tile2.style.background = '#1D6BBA';
         tile2.innerHTML = "";
         // Clear both arrays
         memoryGame.memoryValues = [];
