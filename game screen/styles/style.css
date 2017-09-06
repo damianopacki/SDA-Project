@@ -27,7 +27,7 @@ h1 {
   font-size: 18px; }
 
 #gameBoard {
-  margin-top: 40px; }
+  margin-top: 30px; }
   #gameBoard .tile {
     background: #1D6BBA;
     border: #000 1px solid;
