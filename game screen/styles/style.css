@@ -3,7 +3,10 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #242C33; }
+  text-align: center;
+  background: #1E2934;
+  font-family: sans-serif;
+  font-weight: 100; }
 
 h1 {
   text-transform: uppercase;
@@ -11,9 +14,26 @@ h1 {
   color: #fff;
   letter-spacing: 2px; }
 
+#sideMenu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin-top: 40px;
+  color: #fff;
+  font-size: 18px; }
+
 #gameBoard {
-  padding: 24px;
-  margin-top: 40px; }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-top: 60px; }
   #gameBoard .tile {
     background: #1D6BBA;
     border: #000 1px solid;
