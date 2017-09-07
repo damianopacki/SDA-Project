@@ -8,8 +8,10 @@
 
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css"> 
+    <link rel="stylesheet" href="styles/sweetalert.css">
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/libs/jquery-3.2.1.min.js"></script> 
+    <script src="scripts/libs/sweetalert.min.js"></script>
 </head>
 <body>
     
@@ -17,8 +19,10 @@
         <div class="row">
             <h1>Memory Game</h1>
             <div id="sideMenu">
-                <div>Time left: <span id="timer"></span></div>
-                <button id="pauseButton" class="but btn-primary">Pause</button>
+                <div>Time left: <span id="countdown"></span></div>
+                <!-- <div id="countdown">00:00</div> -->
+                <button class="btn btn-primary" id="pause">Pause</button >
+                <button class="btn btn-primary" id="resume">Resume</button >
                 <div>
                     <p>Difficulty: <span id="difficulty"></span></p>
                 </div>
