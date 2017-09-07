@@ -15,7 +15,11 @@ const memoryGame = {
             $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
             $('.tile').css({'width': '140px', 'height': '145px'});
         } 
-        else if (memoryGame.difficulty === 'Medium') memoryGame.createBoard(memoryGame.mediumArray);
+        else if (memoryGame.difficulty === 'Medium') {
+            memoryGame.createBoard(memoryGame.mediumArray);
+            $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
+            $('.tile').css({'width': '90px', 'height': '80px', 'font-size': '28px'});
+        } 
         else memoryGame.createBoard(memoryGame.hardArray);   
     },
     shuffleTiles: function(array) {
