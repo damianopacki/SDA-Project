@@ -10,7 +10,11 @@ const memoryGame = {
     difficulty: localStorage.getItem('difficulty'),
 
     init: function() {
-        if (memoryGame.difficulty === 'Easy') memoryGame.createBoard(memoryGame.easyArray);
+        if (memoryGame.difficulty === 'Easy') {
+            memoryGame.createBoard(memoryGame.easyArray);
+            $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
+            $('.tile').css({'width': '140px', 'height': '145px'});
+        } 
         else if (memoryGame.difficulty === 'Medium') memoryGame.createBoard(memoryGame.mediumArray);
         else memoryGame.createBoard(memoryGame.hardArray);   
     },
