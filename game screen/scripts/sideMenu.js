@@ -1,20 +1,19 @@
 let sideMenu = {
+
+    difficulty: localStorage.getItem('difficulty'),
+
     init: function() {
         // sideMenu.startTimer();
         sideMenu.displayDifficulty(); 
-        sideMenu.countdown.start(5000);  
-        sideMenu.pauseGame();
-        sideMenu.resumeGame(); 
+        sideMenu.countdown.start(10000);  
+        $('#pause').on('click', sideMenu.pauseGame);
+        $('#resume').on('click', sideMenu.resumeGame);
+
     },
-
-    difficulty: localStorage.getItem('difficulty'),
-    // timer: $('#timer').html(00 + ':' + 05),
-
     displayDifficulty: function() {
         $('#difficulty').html(sideMenu.difficulty);
     },
-
-    countdown: function ($) {
+    countdown: function () {
         // Length ms 
         let timeout = 10000;
         // Interval ms
@@ -71,13 +70,15 @@ let sideMenu = {
             resume: resume,
             start: start
         };
-    }(jQuery),
+    }(),
     pauseGame: function() {
-        $('#pause').on('click', sideMenu.countdown.pause);
+        sideMenu.countdown.pause()
+        $('#pause').addClass('pauseGame');
     },
     resumeGame: function() {
-        $('#resume').on('click', sideMenu.countdown.resume);
-    }
+        sideMenu.countdown.resume();
+        $('#pause').removeClass('pauseGame');
+    },
 
 }
 

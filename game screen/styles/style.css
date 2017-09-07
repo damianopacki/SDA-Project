@@ -39,3 +39,14 @@ h1 {
     font-size: 64px;
     cursor: pointer;
     text-align: center; }
+    @media only screen and (max-width: 768px) {
+      #gameBoard .tile {
+        width: 80px;
+        height: 100px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; } }

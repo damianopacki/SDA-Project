@@ -39,6 +39,9 @@ const memoryGame = {
         } 
     },
     revertTile: function(tile, val) {
+
+        if ($('#pause').hasClass('pauseGame')) return;
+        
         if (tile.innerHTML === "" && memoryGame.memoryValues.length < 2) {
             tile.style.background = '#FFF';
             tile.innerHTML = val;
@@ -64,8 +67,8 @@ const memoryGame = {
                     setTimeout(memoryGame.revertTileBack, 700);
                 }
             }
-
         }
+
     }, 
     revertTileBack: function() {
         // Flip the 2 tiles back over 
