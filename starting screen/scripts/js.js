@@ -4,3 +4,5 @@ $('#difficulties').change(function(){
   });
 
 $('#difficulties').val(localStorage.getItem('difficulty'));
+
+
