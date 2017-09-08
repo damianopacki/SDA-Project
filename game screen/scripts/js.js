@@ -1,6 +1,6 @@
 const memoryGame = {
 
-    easyArray: ['_../imgs/1.png', '_../imgs/1.png', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
+    easyArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
     mediumArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'Ł', 'Ł', 'M', 'M', 'N', 'N', 'Ń', 'Ń', 'O', 'O', 'Ó', 'Ó'],
     hardArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'Ł', 'Ł', 'M', 'M', 'N', 'N', 'Ń', 'Ń', 'O', 'O', 'Ó', 'Ó', 'P', 'P','A-hard', 'A-hard', 'B-hard', 'B-hard', 'C-hard', 'C-hard', 'D-hard', 'D-hard', 'E-hard', 'E-hard', 'F-hard', 'F-hard', 'G-hard', 'G-hard', 'H-hard', 'H-hard', 'A-1', 'A-1', 'B-1', 'B-1', 'C-1', 'C-1', 'D-1', 'D-1', 'E-1', 'E-1', 'V-1', 'V-1'],
     memoryValues: [],
@@ -24,11 +24,6 @@ const memoryGame = {
             memoryGame.createBoard(memoryGame.hardArray);
             $('.tile').css({'width': '100px', 'height': '100px', 'font-size': '28px'});            
         }   
-    },
-    changeImage: function() {
-        let imageIndex = 0;
-        myImage.setAttribute("src", memoryGame.easyArray[imageIndex]);
-        imageIndex = (imageIndex + 1) % memoryGame.easyArray.length;
     },
     shuffleTiles: function(array) {
         return array.sort(() => Math.random() - 0.5);
