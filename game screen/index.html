@@ -7,18 +7,32 @@
     <title>Memory Game</title>
 
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css"> 
+    <link rel="stylesheet" href="styles/sweetalert.css">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/libs/jquery-3.2.1.min.js"></script>
+    <script src="scripts/libs/jquery-3.2.1.min.js"></script> 
+    <script src="scripts/libs/sweetalert.min.js"></script>
 </head>
 <body>
     
     <div class="container text-center">
         <div class="row">
+            <div class="col-xs-12">
+                <div id="sideMenu">
+                    <div>Time left: <span id="countdown"></span></div>
+                    <button class="btn btn-primary" id="pause">Pause</button >
+                    <button class="btn btn-primary" id="resume">Resume</button >
+                    <div>
+                        <p>Difficulty: <span id="difficulty"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div id="gameBoard"></div>
-            <script src="scripts/js.js"></script>
         </div>
     </div>
-
+    <script src="scripts/js.js"></script>
+    <script src="scripts/sideMenu.js"></script>
 </body>
 </html>

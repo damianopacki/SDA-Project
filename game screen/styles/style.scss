@@ -2,8 +2,11 @@
     box-sizing: border-box
 }
 
-body {
-    background-color: #242C33;
+body{
+	text-align: center;
+	background: #000;
+    font-family: sans-serif;
+    font-weight: 100;
 }
 
 h1 {
@@ -13,19 +16,32 @@ h1 {
     letter-spacing: 2px;
 }
 
+#sideMenu {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 18px;
+}
+
 #gameBoard {
+    margin-top: 60px;
 
     .tile {
         background: #1D6BBA;
         border: #000 1px solid;
         border-radius: 4px;
         width: 120px;
-        height: 120px;
+        height: 140px;
         float: left;
         margin: 1px;
         padding: 20px;
         font-size: 64px;
         cursor: pointer;
         text-align: center;
+
+        @media only screen and (max-width: 768px) {
+            background: yellow;
+        }
     }
 }
