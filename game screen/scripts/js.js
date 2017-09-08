@@ -10,8 +10,16 @@ const memoryGame = {
     difficulty: localStorage.getItem('difficulty'),
 
     init: function() {
-        if (memoryGame.difficulty === 'Easy') memoryGame.createBoard(memoryGame.easyArray);
-        else if (memoryGame.difficulty === 'Medium') memoryGame.createBoard(memoryGame.mediumArray);
+        if (memoryGame.difficulty === 'Easy') {
+            memoryGame.createBoard(memoryGame.easyArray);
+            $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
+            $('.tile').css({'width': '140px', 'height': '145px'});
+        } 
+        else if (memoryGame.difficulty === 'Medium') {
+            memoryGame.createBoard(memoryGame.mediumArray);
+            $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
+            $('.tile').css({'width': '100px', 'height': '100px', 'font-size': '28px'});
+        } 
         else memoryGame.createBoard(memoryGame.hardArray);   
     },
     shuffleTiles: function(array) {
@@ -23,8 +31,7 @@ const memoryGame = {
             memoryGame.output += '<div class="tile" id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';   
             memoryGame.manageBoardRows(i);      
         }
-        $('#gameBoard').html(memoryGame.output);
-        console.log('tile.length: ', $('.tile').length);      
+        $('#gameBoard').html(memoryGame.output);   
     },
     manageBoardRows: function(index) {
         console.log('test');

@@ -27,26 +27,19 @@ h1 {
   font-size: 18px; }
 
 #gameBoard {
-  margin-top: 40px; }
+  margin-top: 60px; }
   #gameBoard .tile {
     background: #1D6BBA;
     border: #000 1px solid;
+    border-radius: 4px;
     width: 120px;
     height: 140px;
     float: left;
-    margin: 10px;
+    margin: 1px;
     padding: 20px;
     font-size: 64px;
     cursor: pointer;
     text-align: center; }
     @media only screen and (max-width: 768px) {
       #gameBoard .tile {
-        width: 80px;
-        height: 100px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap; } }
+        background: yellow; } }
