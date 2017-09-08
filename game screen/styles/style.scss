@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    background-color: #242C33;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+#gameBoard {
+
+    .tile {
+        background: #1D6BBA;
+        border: #000 1px solid;
+        border-radius: 4px;
+        width: 120px;
+        height: 120px;
+        float: left;
+        margin: 1px;
+        padding: 20px;
+        font-size: 64px;
+        cursor: pointer;
+        text-align: center;
+    }
+}
