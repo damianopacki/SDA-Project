@@ -1,8 +1,8 @@
 const memoryGame = {
 
-    easyArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
+    easyArray: ['_../imgs/1.png', '_../imgs/1.png', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H'],
     mediumArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'Ł', 'Ł', 'M', 'M', 'N', 'N', 'Ń', 'Ń', 'O', 'O', 'Ó', 'Ó'],
-    hardArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'Ł', 'Ł', 'M', 'M', 'N', 'N', 'Ń', 'Ń', 'O', 'O', 'Ó', 'Ó', 'P', 'P','A-hard', 'A-hard', 'B-hard', 'B-hard', 'C-hard', 'C-hard', 'D-hard', 'D-hard', 'E-hard', 'E-hard', 'F-hard', 'F-hard', 'G-hard', 'G-hard', 'H-hard', 'H-hard', 'A-1', 'A-1', 'B-1', 'B-1', 'C-1', 'C-1', 'D-1', 'D-1', 'E-1', 'E-1'],
+    hardArray: ['A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E', 'F', 'F', 'G', 'G', 'H', 'H', 'I', 'I', 'J', 'J', 'K', 'K', 'L', 'L', 'Ł', 'Ł', 'M', 'M', 'N', 'N', 'Ń', 'Ń', 'O', 'O', 'Ó', 'Ó', 'P', 'P','A-hard', 'A-hard', 'B-hard', 'B-hard', 'C-hard', 'C-hard', 'D-hard', 'D-hard', 'E-hard', 'E-hard', 'F-hard', 'F-hard', 'G-hard', 'G-hard', 'H-hard', 'H-hard', 'A-1', 'A-1', 'B-1', 'B-1', 'C-1', 'C-1', 'D-1', 'D-1', 'E-1', 'E-1', 'V-1', 'V-1'],
     memoryValues: [],
     tileIds: [],
     tilesReverted: 0,
@@ -13,14 +13,22 @@ const memoryGame = {
         if (memoryGame.difficulty === 'Easy') {
             memoryGame.createBoard(memoryGame.easyArray);
             $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
-            $('.tile').css({'width': '140px', 'height': '145px'});
+            $('.tile').css({'width': '160px', 'height': '150px'});
         } 
         else if (memoryGame.difficulty === 'Medium') {
             memoryGame.createBoard(memoryGame.mediumArray);
             $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
-            $('.tile').css({'width': '100px', 'height': '100px', 'font-size': '28px'});
+            $('.tile').css({'width': '120px', 'height': '105px', 'font-size': '42px'});
         } 
-        else memoryGame.createBoard(memoryGame.hardArray);   
+        else {
+            memoryGame.createBoard(memoryGame.hardArray);
+            $('.tile').css({'width': '100px', 'height': '100px', 'font-size': '28px'});            
+        }   
+    },
+    changeImage: function() {
+        let imageIndex = 0;
+        myImage.setAttribute("src", memoryGame.easyArray[imageIndex]);
+        imageIndex = (imageIndex + 1) % memoryGame.easyArray.length;
     },
     shuffleTiles: function(array) {
         return array.sort(() => Math.random() - 0.5);
@@ -41,7 +49,7 @@ const memoryGame = {
         else if (memoryGame.difficulty === 'Medium' && (index + 1) % 6 === 0) {
             memoryGame.output += '<div style="clear:both;"></div>';
         }
-        else if (memoryGame.difficulty === 'Hard' && (index + 1) % 8 === 0 ) {
+        else if (memoryGame.difficulty === 'Hard' && (index + 1) % 11 === 0 ) {
             memoryGame.output += '<div style="clear:both;"></div>';                    
         } 
     },
@@ -81,9 +89,9 @@ const memoryGame = {
         // Flip the 2 tiles back over 
         const tile1 = document.getElementById(memoryGame.tileIds[0]);
         const tile2 = document.getElementById(memoryGame.tileIds[1]);
-        tile1.style.background = '#1D6BBA';
+        $(tile1).css({'background-color': '#120D0D', 'background-image': 'url(../imgs/question.png)', 'background-position': 'center', 'background-repeat': 'no-repeat', 'background-size': 'contain'});
         tile1.innerHTML = "";
-        tile2.style.background = '#1D6BBA';
+        $(tile2).css({'background-color': '#120D0D', 'background-image': 'url(../imgs/question.png)', 'background-position': 'center', 'background-repeat': 'no-repeat', 'background-size': 'contain'});
         tile2.innerHTML = "";
         // Clear both arrays
         memoryGame.memoryValues = [];

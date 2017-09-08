@@ -1,6 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Droid Sans', serif; }
 
 body {
   text-align: center;
@@ -24,19 +25,21 @@ h1 {
   justify-content: space-around;
   margin-top: 40px;
   color: #fff;
-  font-size: 18px; }
+  font-size: 20px; }
 
 #gameBoard {
-  margin-top: 60px; }
+  margin-top: 40px; }
   #gameBoard .tile {
-    background: #1D6BBA;
+    background: #120D0D;
+    background-image: url("../../imgs/question.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     border: #000 1px solid;
-    border-radius: 4px;
-    width: 120px;
-    height: 140px;
+    border-radius: 6px;
     float: left;
-    margin: 1px;
-    padding: 20px;
+    margin: 2px;
+    padding: 50px;
     font-size: 64px;
     cursor: pointer;
     text-align: center; }
