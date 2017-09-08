@@ -18,7 +18,7 @@ const memoryGame = {
         else if (memoryGame.difficulty === 'Medium') {
             memoryGame.createBoard(memoryGame.mediumArray);
             $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
-            $('.tile').css({'width': '90px', 'height': '80px', 'font-size': '28px'});
+            $('.tile').css({'width': '100px', 'height': '100px', 'font-size': '28px'});
         } 
         else memoryGame.createBoard(memoryGame.hardArray);   
     },
@@ -31,8 +31,7 @@ const memoryGame = {
             memoryGame.output += '<div class="tile" id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';   
             memoryGame.manageBoardRows(i);      
         }
-        $('#gameBoard').html(memoryGame.output);
-        console.log('tile.length: ', $('.tile').length);      
+        $('#gameBoard').html(memoryGame.output);   
     },
     manageBoardRows: function(index) {
         console.log('test');

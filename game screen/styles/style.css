@@ -11,18 +11,15 @@ h1 {
   color: #fff;
   letter-spacing: 2px; }
 
-#gameBoard {
-  padding: 24px;
-  margin-top: 40px; }
-  #gameBoard .tile {
-    background: #1D6BBA;
-    border: #000 1px solid;
-    border-radius: 5px;
-    width: 120px;
-    height: 120px;
-    float: left;
-    margin: 10px;
-    padding: 20px;
-    font-size: 64px;
-    cursor: pointer;
-    text-align: center; }
+#gameBoard .tile {
+  background: #1D6BBA;
+  border: #000 1px solid;
+  border-radius: 4px;
+  width: 120px;
+  height: 120px;
+  float: left;
+  margin: 1px;
+  padding: 20px;
+  font-size: 64px;
+  cursor: pointer;
+  text-align: center; }
