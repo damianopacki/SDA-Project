@@ -1,7 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Permanent Marker', cursive; }
+  font-family: 'Merriweather', serif; }
 
 .container {
   background-color: black;
@@ -10,17 +10,18 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4))), url("../../imgs/question.png");
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../../imgs/question.png");
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../../imgs/question.png");
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url("../../imgs/question.png");
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), url("../../imgs/question.png");
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
   background-repeat: no-repeat;
   background-position: center; }
   .container .row {
     display: table-cell;
     vertical-align: middle; }
     .container .row h1 {
-      color: #F11515;
+      color: #477AFB;
+      letter-spacing: 2px;
       font-size: 65px;
       font-weight: normal;
       line-height: 60px;
@@ -32,7 +33,7 @@
       text-transform: uppercase;
       font-weight: normal;
       line-height: 60px;
-      color: #E6AA34; }
+      color: #089DD2; }
     .container .row #difficulties {
       overflow: hidden;
       width: 350px;

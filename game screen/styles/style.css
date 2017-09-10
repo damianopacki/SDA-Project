@@ -23,19 +23,26 @@ h1 {
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin-top: 40px;
-  color: #fff;
-  font-size: 20px; }
+  height: 60px;
+  margin-top: 10px;
+  color: #000;
+  font-size: 20px;
+  border: 2px solid #005593;
+  border-radius: 20px;
+  background-color: #00B2FF;
+  padding: 6px; }
+  #sideMenu span {
+    color: #fff; }
 
 #gameBoard {
-  margin-top: 40px; }
+  margin-top: 30px; }
   #gameBoard .tile {
-    background: #120D0D;
+    background: #0093FF;
     background-image: url("../../imgs/question.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    border: #000 1px solid;
+    border: #fff 1px solid;
     border-radius: 6px;
     float: left;
     margin: 2px;

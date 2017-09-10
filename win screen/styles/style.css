@@ -20,15 +20,18 @@
     display: table-cell;
     vertical-align: middle; }
     .container .row h1 {
-      color: #F11515;
+      color: #009AD2;
       font-size: 65px;
       font-weight: normal;
       line-height: 60px;
       text-transform: uppercase; }
     .container .row p {
       font-size: 32px;
-      color: #E6AA34;
+      color: #FFFFFF;
       margin-bottom: 80px; }
+      .container .row p #finalScore {
+        color: #FF0000;
+        text-decoration: underline; }
     .container .row a {
       display: table;
       text-transform: uppercase;
