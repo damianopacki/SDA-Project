@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Droid Sans', serif; 
+    font-family: 'Permanent Marker', cursive;
 }
 
 
@@ -12,7 +12,7 @@
     position: absolute; 
     height: 100%; 
     width: 100%;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('../../imgs/question.png');
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url('../../imgs/question.png');
     background-repeat: no-repeat;
     background-position: center;
 
@@ -21,7 +21,7 @@
         vertical-align: middle; 
 
         h1 {
-            color: #eee; 
+            color: #F11515; 
             // color: #fff; 
             font-size: 65px; 
             font-weight: normal; 
@@ -36,6 +36,7 @@
             text-transform: uppercase; 
             font-weight: normal; 
             line-height: 60px; 
+            color: #E6AA34;
             
         }
     
@@ -48,6 +49,7 @@
             box-shadow: 1px 1px 11px #C9C9C9;
             background: #F2F2E3 url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
             margin: 0 auto;
+            margin-bottom: 100px;
         
             select {
                 border: 0;

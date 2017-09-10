@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Permanent Marker', cursive; 
+}
+
+
+
+.container {
+    background-color: black;
+    color: #EEE;
+    display: table; 
+    position: absolute; 
+    height: 100%; 
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url('../../imgs/question.png');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .row {
+        display: table-cell; 
+        vertical-align: middle; 
+
+        h1 {
+            color: #F11515; 
+            font-size: 65px; 
+            font-weight: normal; 
+            line-height: 60px; 
+            text-transform: uppercase; 
+            // margin-top: -80px;
+        }
+
+        p {
+            font-size: 32px;
+            color: #E6AA34;
+            margin-bottom: 80px;
+        }
+
+        
+        a {
+            display: table;
+            // margin-top: 80px;
+            text-transform: uppercase; 
+            font-weight: normal; 
+            width: 400px;
+            margin: 10px auto;
+        }
+    
+      }
+
+}
