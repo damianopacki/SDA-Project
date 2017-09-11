@@ -1,5 +1,6 @@
 const memoryGame = {
-    easyArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png'],
+    gameArray: [],
+    easyArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png'],
     mediumArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png', '../imgs/10.png', '../imgs/10.png', '../imgs/11.png', '../imgs/11.png', '../imgs/12.png', '../imgs/12.png', '../imgs/13.png', '../imgs/13.png', '../imgs/14.png', '../imgs/14.png', '../imgs/15.png', '../imgs/15.png', '../imgs/16.png', '../imgs/16.png', '../imgs/17.png', '../imgs/17.png', '../imgs/18.png', '../imgs/18.png'],
     hardArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png', '../imgs/10.png', '../imgs/10.png', '../imgs/11.png', '../imgs/11.png', '../imgs/12.png', '../imgs/12.png', '../imgs/13.png', '../imgs/13.png', '../imgs/14.png', '../imgs/14.png', '../imgs/15.png', '../imgs/15.png', '../imgs/16.png', '../imgs/16.png', '../imgs/17.png', '../imgs/17.png', '../imgs/18.png', '../imgs/18.png', '../imgs/19.png', '../imgs/19.png', '../imgs/20.png', '../imgs/20.png', '../imgs/21.png', '../imgs/21.png', '../imgs/22.png', '../imgs/22.png', '../imgs/23.png', '../imgs/23.png', '../imgs/24.png', '../imgs/24.png', '../imgs/25.png', '../imgs/25.png', '../imgs/26.png', '../imgs/26.png', '../imgs/27.png', '../imgs/27.png', '../imgs/28.png', '../imgs/28.png', '../imgs/29.png', '../imgs/29.png', '../imgs/30.png', '../imgs/30.png', '../imgs/31.png', '../imgs/31.png', '../imgs/32.png', '../imgs/32.png','../imgs/33.png', '../imgs/33.png'],
     memoryValues: [],
@@ -12,20 +13,24 @@ const memoryGame = {
 
     init: function() {
         if (memoryGame.difficulty === 'Easy') {
+            memoryGame.gameArray = memoryGame.easyArray;
             memoryGame.createBoard(memoryGame.easyArray);
-            $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
-            $('.tile').css({'width': '160px', 'height': '150px'});
+            $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
+            $('.tile').css({'width': '220px', 'height': '200px'});            
         } 
         else if (memoryGame.difficulty === 'Medium') {
+            memoryGame.gameArray = memoryGame.mediumArray;            
             memoryGame.createBoard(memoryGame.mediumArray);
-            $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
-            $('.tile').css({'width': '122px', 'height': '100px', 'font-size': '42px'});
+            // $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
+            $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});            
+            $('.tile').css({'width': '160px', 'height': '150px', 'font-size': '42px'});          
         } 
         else {
+            memoryGame.gameArray = memoryGame.hardArray;            
             memoryGame.createBoard(memoryGame.hardArray);
             $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
             $('.tile').css({'width': '130px', 'height': '100px', 'font-size': '28px'});            
-        }    
+        } 
     },
     shuffleTiles: function(array) {
         return array.sort(() => Math.random() - 0.5);
@@ -46,20 +51,33 @@ const memoryGame = {
         if (memoryGame.difficulty === 'Easy' &&  (index + 1) % 4 === 0) {
             memoryGame.output += '<div style="clear:both;"></div>'; 
         }
-        else if (memoryGame.difficulty === 'Medium' && (index + 1) % 6 === 0) {
+        else if (memoryGame.difficulty === 'Medium' && (index + 1) % 9 === 0) {
             memoryGame.output += '<div style="clear:both;"></div>';
         }
         // else if (memoryGame.difficulty === 'Hard' && (index + 1) % 11 === 0 ) {
         //     memoryGame.output += '<div style="clear:both;"></div>';                    
         // } 
     },
+    // checkDeviceSize: function() {
+    //     if ($("#gameBoard").css("float") === "none" && memoryGame.difficulty === 'Easy'){
+    //         $('.tile').css({'width': '105px', 'height': '110px'});
+    //     }
+    //     else if ($("#gameBoard").css("float") === "none" && memoryGame.difficulty === 'Medium') {
+    //         $('.tile').css({'width': '80px', 'height': '70px'});            
+    //     }
+    // },
     countScore: function() {
+        if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {
+            if (memoryGame.difficulty === 'Easy') memoryGame.score += 5; 
+            else if (memoryGame.difficulty === 'Medium') memoryGame.score += 10;                                          
+            else memoryGame.score += 20;
+        }
         $('#scoreCounter').html(memoryGame.score);
     },
     revertTile: function(tile, val) {
-
         if ($('#pause').hasClass('pauseGame')) return;
-        
+        if ($(tile).hasClass('reverted')) return;
+
         if ($(tile).html() === "" && memoryGame.memoryValues.length < 2) {
             $(tile).css({
                 'background-color': '#fff',
@@ -75,26 +93,33 @@ const memoryGame = {
             else if (memoryGame.memoryValues.length === 1) {
                 memoryGame.memoryValues.push(val);
                 memoryGame.tileIds.push(tile.id);
-                if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {
+                console.log('memoryGame.memoryValues', memoryGame.memoryValues);
+                console.log('memoryGame.tileIds: ', memoryGame.tileIds);
+                if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {     
+                    let card1 = $(memoryGame.tileIds)[0];
+                    let card2 = $(memoryGame.tileIds)[1];  
+                    console.log('card1: ', card1);
+                    console.log('card2: ', card2);         
+                    $('#"'+ card1 +'"').addClass('reverted');
+                    $(card2).addClass('reverted');                                                  
                     memoryGame.tilesReverted += 2;
-                    memoryGame.score += 10;
                     // Clear both arrays
                     memoryGame.memoryValues = [];
                     memoryGame.tileIds = [];
                     // Check to see if the whole board is cleared
-                    if (memoryGame.tilesReverted === memoryGame.easyArray.length) {
+                    if (memoryGame.tilesReverted === memoryGame.gameArray.length) {
                         sideMenu.running = false;
                         let timeScore = sideMenu.timer.html().match(/\d/g);
                         timeScore = timeScore[1] + timeScore[2] + timeScore[3];                        
                         if (memoryGame.difficulty === 'Easy') memoryGame.score += (timeScore * 5);
                         else if (memoryGame.difficulty === 'Medium') memoryGame.score += (timeScore * 20);
                         else memoryGame.score += (timeScore * 50);
-                        console.log(memoryGame.score);
                         localStorage.setItem('highscore', memoryGame.score);
                         document.location.href = "file:///C:/Users/Damian/Documents/SDA-Project/win%20screen/index.html";
                     }
                 } else {
-                    setTimeout(memoryGame.revertTileBack, 700);
+                    // $(tile).removeClass('reverted');
+                    setTimeout(memoryGame.revertTileBack, 500);
                 }
             }
         }
@@ -125,10 +150,6 @@ const memoryGame = {
         memoryGame.tileIds = [];
     },
 }
-
-memoryGame.init();
-console.log(memoryGame.difficulty);
-
 
 const sideMenu = {
     running: true,
@@ -177,8 +198,7 @@ const sideMenu = {
             sideMenu.timer.html( 
                 (Minutes < 10 ? '0' : '') + Minutes 
                 + ':' 
-                + (Seconds < 10 ? '0' : '') + Seconds );
-                console.log('timer: ', sideMenu.timer.html());       
+                + (Seconds < 10 ? '0' : '') + Seconds );      
         };
         let pause = function() {
             sideMenu.running = false;
@@ -213,4 +233,6 @@ const sideMenu = {
 
 }
 
+memoryGame.init();
+console.log(memoryGame.difficulty);
 sideMenu.init();

@@ -36,8 +36,12 @@ h1 {
 
 #gameBoard {
     margin-top: 30px;
+    // @media only screen and (max-width: 768px) {
+    //     float: none;
+    // }
 
     .tile {
+        float: left;
         background: #0093FF;
         background-image: url('../../imgs/question.png');
         background-position: center;
@@ -45,16 +49,11 @@ h1 {
         background-size: contain;
         border: #fff 1px solid;
         border-radius: 6px;
-        float: left;
         margin: 2px;
         padding: 50px;
         font-size: 64px;
         cursor: pointer;
         text-align: center;
-
-        @media only screen and (max-width: 768px) {
-            background: yellow;
-        }
 
     }
 }

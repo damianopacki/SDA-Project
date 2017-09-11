@@ -1,7 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Merriweather', serif; }
+  font-family: 'Droid Serif', serif; }
 
 .container {
   background-color: black;
@@ -40,8 +40,8 @@
       -moz-border-radius: 9px 9px 9px 9px;
       -webkit-border-radius: 9px 9px 9px 9px;
       border-radius: 9px 9px 9px 9px;
-      -webkit-box-shadow: 1px 1px 11px #C9C9C9;
-      box-shadow: 1px 1px 11px #C9C9C9;
+      -webkit-box-shadow: 1px 1px 11px #81C8F1;
+      box-shadow: 1px 1px 11px #81C8F1;
       background: #F2F2E3 url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
       margin: 0 auto;
       margin-bottom: 100px; }
