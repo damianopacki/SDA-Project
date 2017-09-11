@@ -32,6 +32,9 @@
       .container .row p #finalScore {
         color: #FF0000;
         text-decoration: underline; }
+    .container .row #scoreboard {
+      border: 2px solid #009AD2;
+      width: 600px; }
     .container .row a {
       display: table;
       text-transform: uppercase;

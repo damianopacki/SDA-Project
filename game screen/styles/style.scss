@@ -36,9 +36,9 @@ h1 {
 
 #gameBoard {
     margin-top: 30px;
-    // @media only screen and (max-width: 768px) {
-    //     float: none;
-    // }
+    @media only screen and (max-width: 768px) {
+        float: none;
+    }
 
     .tile {
         float: left;
