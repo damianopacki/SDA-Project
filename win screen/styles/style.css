@@ -1,7 +1,7 @@
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Permanent Marker', cursive; }
+  font-family: 'Anton', sans-serif; }
 
 .container {
   background-color: black;
@@ -14,14 +14,18 @@
   background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
   background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
+  background-image: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
+  background-image: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
+  background-image: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("../../imgs/question.png");
   background-repeat: no-repeat;
   background-position: center; }
   .container .row {
     display: table-cell;
     vertical-align: middle; }
     .container .row h1 {
-      color: #009AD2;
-      font-size: 65px;
+      color: #00DCFF;
+      text-shadow: 2px 2px #000;
+      font-size: 82px;
       font-weight: normal;
       line-height: 60px;
       text-transform: uppercase; }
@@ -32,7 +36,7 @@
     .container .row p {
       font-size: 32px;
       color: #FFFFFF;
-      margin-bottom: 80px; }
+      margin-bottom: 20px; }
       @media only screen and (max-width: 768px) {
         .container .row p {
           font-size: 24px;
@@ -41,8 +45,29 @@
         color: #FF0000;
         text-decoration: underline; }
     .container .row #scoreboard {
-      border: 2px solid #009AD2;
+      border: 2px solid #00516F;
+      border-radius: 20px;
+      margin: 20px auto;
+      background: #36b9e8;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(left, #01F1FF, #0086FD);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(right, #01F1FF, #0086FD);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(right, #01F1FF, #0086FD);
+      /* For Firefox 3.6 to 15 */
+      background: -webkit-gradient(linear, left top, right top, from(#01F1FF), to(#0086FD));
+      background: -o-linear-gradient(left, #01F1FF, #0086FD);
+      background: linear-gradient(to right, #01F1FF, #0086FD);
+      /* Standard syntax */
       width: 600px; }
+      @media only screen and (max-width: 768px) {
+        .container .row #scoreboard {
+          width: 300px; } }
+      .container .row #scoreboard p {
+        color: #000;
+        margin: 0;
+        padding: 0; }
     .container .row a {
       display: table;
       text-transform: uppercase;

@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Permanent Marker', cursive; 
+    font-family: 'Anton', sans-serif; 
 }
 
 
@@ -13,6 +13,9 @@
     height: 100%; 
     width: 100%;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url('../../imgs/question.png');
+    background-image: -webkit-linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url('../../imgs/question.png');
+    background-image: -moz-linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url('../../imgs/question.png'); 
+    background-image: -o-linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url('../../imgs/question.png');        
     background-repeat: no-repeat;
     background-position: center;
 
@@ -21,8 +24,9 @@
         vertical-align: middle; 
 
         h1 {
-            color: #009AD2; 
-            font-size: 65px; 
+            color: #00DCFF; 
+            text-shadow: 2px 2px #000;
+            font-size: 82px; 
             font-weight: normal; 
             line-height: 60px; 
             text-transform: uppercase; 
@@ -36,7 +40,7 @@
         p {
             font-size: 32px;
             color: #FFFFFF;
-            margin-bottom: 80px;
+            margin-bottom: 20px;
 
             @media only screen and (max-width: 768px) {
                 font-size: 24px;
@@ -44,14 +48,31 @@
             }
             
             #finalScore {
-                color: #FF0000;
+                color: #FF0000;           
                 text-decoration: underline;
             }
         }
 
         #scoreboard {
-            border: 2px solid #009AD2;
-            width: 600px;
+            border: 2px solid #00516F;
+            border-radius: 20px;
+            margin: 20px auto;
+            background: #36b9e8; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(left, #01F1FF , #0086FD); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(right, #01F1FF, #0086FD); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(right, #01F1FF, #0086FD); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to right, #01F1FF , #0086FD); /* Standard syntax */ 
+            width: 600px;   
+            
+            @media only screen and (max-width: 768px) {
+                width: 300px;
+            }
+
+            p {
+                color: #000;
+                margin: 0;
+                padding: 0;
+            }
         }
         
         a {

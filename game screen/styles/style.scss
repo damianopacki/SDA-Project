@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Anton', sans-serif;
 }
 
 body{
@@ -21,6 +21,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     height: 60px;
+    line-height: 40px;
     margin-top: 10px;
     color: #000;
     font-size: 20px;
@@ -29,8 +30,9 @@ h1 {
     background-color: #00B2FF;
     padding: 6px;
     @media only screen and (max-width: 768px) {
-        font-size: 14px;
+        font-size: 12px;
         padding: 0;
+        line-height: 50px;
     }
 
     span {
@@ -39,7 +41,7 @@ h1 {
 
     button {
         @media only screen and (max-width: 768px) {
-            font-size: 16px;
+            font-size: 14px;
             height: 40px;
             margin-top: 8px;
             margin-left: 5px;
@@ -49,9 +51,6 @@ h1 {
 
 #gameBoard {
     margin-top: 30px;
-    @media only screen and (max-width: 768px) {
-        float: none;
-    }
 
     .tile {
         float: left;

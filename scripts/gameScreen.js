@@ -85,8 +85,6 @@ const memoryGame = {
             if (memoryGame.memoryValues.length === 0) {
                 memoryGame.memoryValues.push(val);
                 memoryGame.tileIds.push(tile.id);
-                console.log('memoryGame.memoryValues', memoryGame.memoryValues);
-                console.log('memoryGame.tileIds: ', memoryGame.tileIds);
                 let firstCard = $(memoryGame.tileIds)[0];
                 $('#' + firstCard).addClass('reverted');
             } 
@@ -114,8 +112,9 @@ const memoryGame = {
                         if (memoryGame.difficulty === 'Easy') memoryGame.score += (timeScore * 5);
                         else if (memoryGame.difficulty === 'Medium') memoryGame.score += (timeScore * 20);
                         else memoryGame.score += (timeScore * 50);
-                        localStorage.setItem('highscore', memoryGame.score);
-                        document.location.href = "file:///C:/Users/Damian/Documents/SDA-Project/win%20screen/index.html";
+                        localStorage.setItem('result', memoryGame.score);
+                        memoryGame.createScoreboard();
+                        // document.location.href = "file:///C:/Users/Damian/Documents/SDA-Project/win%20screen/index.html";
                     }
                 } else {
                     $(tile).removeClass('reverted');
@@ -149,6 +148,44 @@ const memoryGame = {
         memoryGame.memoryValues = [];
         memoryGame.tileIds = [];
     },
+    createScoreboard: function() {
+        let result = localStorage.getItem('result');
+        if (result < 100) localStorage.setItem('1st', 100);  
+        if (result < 80) localStorage.setItem('2nd', 80);        
+        if (result < 60) localStorage.setItem('3rd', 60);        
+        if (result < 40) localStorage.setItem('4th', 40);        
+        if (result < 10) localStorage.setItem('5th', 10);      
+        let first = localStorage.getItem('1st');  
+        let second = localStorage.getItem('2nd');  
+        let third = localStorage.getItem('3rd');  
+        let fourth = localStorage.getItem('4th');  
+        let fifth = localStorage.getItem('5th');        
+        if (result > first) {
+            localStorage.setItem('1st', result);
+            let name = prompt('Please enter your name');
+            localStorage.setItem('1name', name);    
+        } 
+        else if (result > second) {
+            localStorage.setItem('2nd', result);
+            let name = prompt('Please enter your name');
+            localStorage.setItem('2name', name);
+        }
+        else if (result > third) {
+            localStorage.setItem('3rd', result);
+            let name = prompt('Please enter your name');
+            localStorage.setItem('3name', name);
+        }         
+        else if (result > fourth) {
+            localStorage.setItem('4th', result);
+            let name = prompt('Please enter your name');
+            localStorage.setItem('4name', name);
+        } 
+        else if (result > fifth) {
+            localStorage.setItem('5th', result);
+            let name = prompt('Please enter your name');
+            localStorage.setItem('5name', name);
+        }                          
+    }
 }
 
 const sideMenu = {
