@@ -1,4 +1,4 @@
-const memoryGame = {
+var memoryGame = {
     gameArray: [],
     easyArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png'],
     mediumArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png', '../imgs/10.png', '../imgs/10.png', '../imgs/11.png', '../imgs/11.png', '../imgs/12.png', '../imgs/12.png', '../imgs/13.png', '../imgs/13.png', '../imgs/14.png', '../imgs/14.png', '../imgs/15.png', '../imgs/15.png', '../imgs/16.png', '../imgs/16.png', '../imgs/17.png', '../imgs/17.png', '../imgs/18.png', '../imgs/18.png'],
@@ -15,31 +15,38 @@ const memoryGame = {
         if (memoryGame.difficulty === 'Easy') {
             memoryGame.gameArray = memoryGame.easyArray;
             memoryGame.createBoard(memoryGame.easyArray);
-            $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
+            $('#gameBoard').css({'display': 'flex', 'display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
             $('.tile').css({'width': '220px', 'height': '210px'});    
             memoryGame.checkDeviceSize();       
         } 
         else if (memoryGame.difficulty === 'Medium') {
             memoryGame.gameArray = memoryGame.mediumArray;            
             memoryGame.createBoard(memoryGame.mediumArray);
-            $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});            
+            $('#gameBoard').css({'display': 'flex', 'display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});            
             $('.tile').css({'width': '160px', 'height': '150px', 'font-size': '42px'}); 
             memoryGame.checkDeviceSize();                   
         } 
         else {
             memoryGame.gameArray = memoryGame.hardArray;            
             memoryGame.createBoard(memoryGame.hardArray);
-            $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
+            $('#gameBoard').css({'display': 'flex','display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
             $('.tile').css({'width': '130px', 'height': '100px', 'font-size': '28px'});   
             memoryGame.checkDeviceSize();                   
         } 
     },
-    shuffleTiles: function(array) {
-        return array.sort(() => Math.random() - 0.5);
+    shuffvariles: function(array) {
+        // return array.sort(() => Math.random() - 0.5);
+        var i = array.length, j, temp;
+        while(--i > 0) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = array[j];
+            array[j] = array[i];
+            array[i] = temp;
+        } 
     },
     createBoard: function(array) {
-        memoryGame.shuffleTiles(array);
-        for (let i = 0; i < array.length; i++) {
+        memoryGame.shuffvariles(array);
+        for (var i = 0; i < array.length; i++) {
             memoryGame.output += '<div class="tile" id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';   
 
             // 3D flipping card effect
@@ -50,7 +57,7 @@ const memoryGame = {
 
     // function resposible for setting up responsive game board
     checkDeviceSize: function() {
-        let deviceWidth = $(window).width();
+        var deviceWidth = $(window).width();
         console.log('deviceSize: ', deviceWidth);
         if (deviceWidth <= 768 && memoryGame.difficulty === 'Easy') {
             $('.tile').css({'width': '10px', 'height': '10px'});
@@ -85,18 +92,18 @@ const memoryGame = {
             if (memoryGame.memoryValues.length === 0) {
                 memoryGame.memoryValues.push(val);
                 memoryGame.tileIds.push(tile.id);
-                let firstCard = $(memoryGame.tileIds)[0];
+                var firstCard = $(memoryGame.tileIds)[0];
                 $('#' + firstCard).addClass('reverted');
             } 
             else if (memoryGame.memoryValues.length === 1) {
-                let firstCard = $(memoryGame.tileIds)[0];
+                var firstCard = $(memoryGame.tileIds)[0];
                 
                     $('#' + firstCard).removeClass('reverted');                                                    
                 memoryGame.memoryValues.push(val);
                 memoryGame.tileIds.push(tile.id);
                 if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {     
-                    let card1 = $(memoryGame.tileIds)[0];
-                    let card2 = $(memoryGame.tileIds)[1];         
+                    var card1 = $(memoryGame.tileIds)[0];
+                    var card2 = $(memoryGame.tileIds)[1];         
                     $('#' + card1).addClass('reverted');
                     $('#'+ card2).addClass('reverted');                                                  
                     memoryGame.tilesReverted += 2;
@@ -107,7 +114,7 @@ const memoryGame = {
                     if (memoryGame.tilesReverted === memoryGame.gameArray.length) {
                         sideMenu.running = false;
                         // setting up score system
-                        let timeScore = sideMenu.timer.html().match(/\d/g);
+                        var timeScore = sideMenu.timer.html().match(/\d/g);
                         timeScore = timeScore[1] + timeScore[2] + timeScore[3];                        
                         if (memoryGame.difficulty === 'Easy') memoryGame.score += (timeScore * 5);
                         else if (memoryGame.difficulty === 'Medium') memoryGame.score += (timeScore * 20);
@@ -126,8 +133,8 @@ const memoryGame = {
     }, 
     revertTileBack: function() {
         // Flip the 2 tiles back over 
-        const tile1 = document.getElementById(memoryGame.tileIds[0]);
-        const tile2 = document.getElementById(memoryGame.tileIds[1]);
+        var tile1 = document.getElementById(memoryGame.tileIds[0]);
+        var tile2 = document.getElementById(memoryGame.tileIds[1]);
         $(tile1).css({
             'background-color': '#0093FF', 
             'background-image': 'url(../imgs/question.png)', 
@@ -149,46 +156,46 @@ const memoryGame = {
         memoryGame.tileIds = [];
     },
     createScoreboard: function() {
-        let result = localStorage.getItem('result');
+        var result = localStorage.getItem('result');
         if (result < 100) localStorage.setItem('1st', 100);  
         if (result < 80) localStorage.setItem('2nd', 80);        
         if (result < 60) localStorage.setItem('3rd', 60);        
         if (result < 40) localStorage.setItem('4th', 40);        
         if (result < 10) localStorage.setItem('5th', 10);      
-        let first = localStorage.getItem('1st');  
-        let second = localStorage.getItem('2nd');  
-        let third = localStorage.getItem('3rd');  
-        let fourth = localStorage.getItem('4th');  
-        let fifth = localStorage.getItem('5th');        
+        var first = localStorage.getItem('1st');  
+        var second = localStorage.getItem('2nd');  
+        var third = localStorage.getItem('3rd');  
+        var fourth = localStorage.getItem('4th');  
+        var fifth = localStorage.getItem('5th');        
         if (result > first) {
             localStorage.setItem('1st', result);
-            let name = prompt('Please enter your name');
+            var name = prompt('Please enter your name');
             localStorage.setItem('1name', name);    
         } 
         else if (result > second) {
             localStorage.setItem('2nd', result);
-            let name = prompt('Please enter your name');
+            var name = prompt('Please enter your name');
             localStorage.setItem('2name', name);
         }
         else if (result > third) {
             localStorage.setItem('3rd', result);
-            let name = prompt('Please enter your name');
+            var name = prompt('Please enter your name');
             localStorage.setItem('3name', name);
         }         
         else if (result > fourth) {
             localStorage.setItem('4th', result);
-            let name = prompt('Please enter your name');
+            var name = prompt('Please enter your name');
             localStorage.setItem('4name', name);
         } 
         else if (result > fifth) {
             localStorage.setItem('5th', result);
-            let name = prompt('Please enter your name');
+            var name = prompt('Please enter your name');
             localStorage.setItem('5name', name);
         }                          
     }
 }
 
-const sideMenu = {
+var sideMenu = {
     running: true,
     timer: $('#countdown'),
     score: 0,
@@ -205,15 +212,15 @@ const sideMenu = {
     },
     countdown: function () {
         // Length ms 
-        let timeout = 10000;
+        var timeout = 10000;
         // Interval ms
-        let timeGap = 1000;   
-        let currentTime = ( new Date() ).getTime();
-        let endTime = ( new Date() ).getTime() + timeout; 
-        let pauseButton = $('#pause');
-        let resumeButton = $('#resume').hide();
+        var timeGap = 1000;   
+        var currentTime = ( new Date() ).getTime();
+        var endTime = ( new Date() ).getTime() + timeout; 
+        var pauseButton = $('#pause');
+        var resumeButton = $('#resume').hide();
         
-        let updateTimer = function() {
+        var updateTimer = function() {
             // Run till timeout
             if (currentTime + timeGap < endTime) {
                 setTimeout( updateTimer, timeGap );
@@ -227,27 +234,27 @@ const sideMenu = {
                 }
             }
             // Update Gui
-            let time = new Date();
+            var time = new Date();
             time.setTime( endTime - currentTime );
-            let Minutes = time.getMinutes();
-            let Seconds = time.getSeconds();
+            var Minutes = time.getMinutes();
+            var Seconds = time.getSeconds();
             
             sideMenu.timer.html( 
                 (Minutes < 10 ? '0' : '') + Minutes 
                 + ':' 
                 + (Seconds < 10 ? '0' : '') + Seconds );      
         };
-        let pause = function() {
+        var pause = function() {
             sideMenu.running = false;
             pauseButton.hide();
             resumeButton.show();
         }; 
-        let resume = function() {
+        var resume = function() {
             sideMenu.running = true;
             pauseButton.show();
             resumeButton.hide();
         };
-        let start = function(timeout) {
+        var start = function(timeout) {
             timeout = timeout;
             currentTime = ( new Date() ).getTime();
             endTime = ( new Date() ).getTime() + timeout;
