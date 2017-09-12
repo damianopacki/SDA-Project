@@ -34,7 +34,7 @@ var memoryGame = {
             memoryGame.checkDeviceSize();                   
         } 
     },
-    shuffvariles: function(array) {
+    shuffleTiles: function(array) {
         // return array.sort(() => Math.random() - 0.5);
         var i = array.length, j, temp;
         while(--i > 0) {
@@ -45,7 +45,7 @@ var memoryGame = {
         } 
     },
     createBoard: function(array) {
-        memoryGame.shuffvariles(array);
+        memoryGame.shuffleTiles(array);
         for (var i = 0; i < array.length; i++) {
             memoryGame.output += '<div class="tile" id="title'+i+'" onclick="memoryGame.revertTile(this, \''+ array[i] +'\')"></div>';   
 
@@ -59,21 +59,16 @@ var memoryGame = {
     checkDeviceSize: function() {
         var deviceWidth = $(window).width();
         console.log('deviceSize: ', deviceWidth);
-        if (deviceWidth <= 768 && memoryGame.difficulty === 'Easy') {
-            $('.tile').css({'width': '10px', 'height': '10px'});
-        }
-        else if (deviceWidth <= 768 && memoryGame.difficulty === 'Medium') {
-            $('.tile').css({'width': '10px', 'height': '10px'});
-        }
-        else if (deviceWidth <= 768) {
-            $('.tile').css({'width': '10px', 'height': '10px'});      
-        }
+        if (deviceWidth <= 768 && memoryGame.difficulty === 'Easy') $('.tile').css({'width': '60px', 'height': '40px'});
+        else if (deviceWidth <= 768 && memoryGame.difficulty === 'Medium') $('.tile').css({'width': '110px', 'height': '100px'});
+        else if (deviceWidth <= 768) $('.tile').css({'width': '10px', 'height': '10px'});        
+        else if (deviceWidth >= 768 && deviceWidth <= 1024 && memoryGame.difficulty === 'Easy') $('.tile').css({'width': '180px', 'height': '160px'});    
     },
     countScore: function() {
         if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {
             if (memoryGame.difficulty === 'Easy') memoryGame.score += 5; 
-            else if (memoryGame.difficulty === 'Medium') memoryGame.score += 10;                                          
-            else memoryGame.score += 20;
+            else if (memoryGame.difficulty === 'Medium') memoryGame.score += 7;                                          
+            else memoryGame.score += 10;
         }
         $('#scoreCounter').html(memoryGame.score);
     },
@@ -96,9 +91,8 @@ var memoryGame = {
                 $('#' + firstCard).addClass('reverted');
             } 
             else if (memoryGame.memoryValues.length === 1) {
-                var firstCard = $(memoryGame.tileIds)[0];
-                
-                    $('#' + firstCard).removeClass('reverted');                                                    
+                var firstCard = $(memoryGame.tileIds)[0];            
+                $('#' + firstCard).removeClass('reverted');                                                    
                 memoryGame.memoryValues.push(val);
                 memoryGame.tileIds.push(tile.id);
                 if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {     
@@ -114,14 +108,15 @@ var memoryGame = {
                     if (memoryGame.tilesReverted === memoryGame.gameArray.length) {
                         sideMenu.running = false;
                         // setting up score system
+                        var name = prompt('please enter your name');
                         var timeScore = sideMenu.timer.html().match(/\d/g);
                         timeScore = timeScore[1] + timeScore[2] + timeScore[3];                        
                         if (memoryGame.difficulty === 'Easy') memoryGame.score += (timeScore * 5);
-                        else if (memoryGame.difficulty === 'Medium') memoryGame.score += (timeScore * 20);
-                        else memoryGame.score += (timeScore * 50);
+                        else if (memoryGame.difficulty === 'Medium') memoryGame.score += (timeScore * 7);
+                        else memoryGame.score += (timeScore * 10);
                         localStorage.setItem('result', memoryGame.score);
-                        memoryGame.createScoreboard();
-                        // document.location.href = "file:///C:/Users/Damian/Documents/SDA-Project/win%20screen/index.html";
+                        memoryGame.createScoreboard(name);
+                        document.location.href = "../win screen/index.html";
                     }
                 } else {
                     $(tile).removeClass('reverted');
@@ -155,43 +150,14 @@ var memoryGame = {
         memoryGame.memoryValues = [];
         memoryGame.tileIds = [];
     },
-    createScoreboard: function() {
+    createScoreboard: function(name) {
         var result = localStorage.getItem('result');
-        if (result < 100) localStorage.setItem('1st', 100);  
-        if (result < 80) localStorage.setItem('2nd', 80);        
-        if (result < 60) localStorage.setItem('3rd', 60);        
-        if (result < 40) localStorage.setItem('4th', 40);        
-        if (result < 10) localStorage.setItem('5th', 10);      
-        var first = localStorage.getItem('1st');  
-        var second = localStorage.getItem('2nd');  
-        var third = localStorage.getItem('3rd');  
-        var fourth = localStorage.getItem('4th');  
-        var fifth = localStorage.getItem('5th');        
-        if (result > first) {
-            localStorage.setItem('1st', result);
-            var name = prompt('Please enter your name');
-            localStorage.setItem('1name', name);    
-        } 
-        else if (result > second) {
-            localStorage.setItem('2nd', result);
-            var name = prompt('Please enter your name');
-            localStorage.setItem('2name', name);
-        }
-        else if (result > third) {
-            localStorage.setItem('3rd', result);
-            var name = prompt('Please enter your name');
-            localStorage.setItem('3name', name);
-        }         
-        else if (result > fourth) {
-            localStorage.setItem('4th', result);
-            var name = prompt('Please enter your name');
-            localStorage.setItem('4name', name);
-        } 
-        else if (result > fifth) {
-            localStorage.setItem('5th', result);
-            var name = prompt('Please enter your name');
-            localStorage.setItem('5name', name);
-        }                          
+        scoresArray = JSON.parse(localStorage.getItem('highscores')) || [];
+        scoresArray.push({name: name, score: result});
+        scoresArray.sort(function(a, b) {
+            return parseFloat(b.score) - parseFloat(a.score);
+        });
+        localStorage.setItem('highscores', JSON.stringify(scoresArray));         
     }
 }
 
@@ -203,7 +169,10 @@ var sideMenu = {
     init: function() {
         // sideMenu.startTimer();
         sideMenu.displayDifficulty(); 
-        sideMenu.countdown.start(180000);  
+        if (memoryGame.difficulty === 'Easy') sideMenu.countdown.start(180000);
+        else if (memoryGame.difficulty === 'Medium') sideMenu.countdown.start(240000);
+        else if (memoryGame.difficulty === 'Hard') sideMenu.countdown.start(300000);        
+        
         $('#pause').on('click', sideMenu.pauseGame);
         $('#resume').on('click', sideMenu.resumeGame);
     },

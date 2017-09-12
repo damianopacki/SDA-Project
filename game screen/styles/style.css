@@ -49,14 +49,16 @@ h1 {
         font-size: 14px;
         height: 40px;
         margin-top: 8px;
-        margin-left: 5px; } }
+        margin-left: 10px; } }
   #sideMenu #difficulty {
     margin-right: 80px; }
+    @media only screen and (max-width: 768px) {
+      #sideMenu #difficulty {
+        margin-right: 10px; } }
 
 #gameBoard {
   margin-top: 30px; }
   #gameBoard .tile {
-    float: left;
     background: #0093FF;
     background-image: url("../../imgs/question.png");
     background-position: center;

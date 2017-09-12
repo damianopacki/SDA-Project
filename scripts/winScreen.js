@@ -1,20 +1,9 @@
-let result = localStorage.getItem('result');
+var result = localStorage.getItem('result');
+var scoresArray = JSON.parse(localStorage.getItem('highscores')) || [];
 $('#finalScore').html(result);
 
-let first = localStorage.getItem('1st');  
-let second = localStorage.getItem('2nd');  
-let third = localStorage.getItem('3rd');  
-let fourth = localStorage.getItem('4th');  
-let fifth = localStorage.getItem('5th'); 
-
-let firstName = localStorage.getItem('1name');
-let secondName = localStorage.getItem('2name');
-let thirdName = localStorage.getItem('3name');
-let fourthName = localStorage.getItem('4name');
-let fifthName = localStorage.getItem('5name');
-
-$('#1st').html('1. ' + firstName + ' - ' + first);
-$('#2nd').html('2. ' + secondName + ' - ' + second);
-$('#3rd').html('3. ' + thirdName + ' - ' + third);
-$('#4th').html('4. ' + fourthName + ' - ' + fourth);
-$('#5th').html('5. ' + fifthName + ' - ' + fifth);
+scoresArray[0] ? $('#1st').html('1. ' + scoresArray[0].name + ' - ' + scoresArray[0].score) : $('#1st').html('---');
+scoresArray[1] ? $('#2nd').html('2. ' + scoresArray[1].name + ' - ' + scoresArray[1].score) : $('#2nd').html('---');
+scoresArray[2] ? $('#3rd').html('3. ' + scoresArray[2].name + ' - ' + scoresArray[2].score) : $('#3rd').html('---');
+scoresArray[3] ? $('#4th').html('4. ' + scoresArray[3].name + ' - ' + scoresArray[3].score) : $('#4th').html('---');
+scoresArray[4] ? $('#5th').html('5. ' + scoresArray[4].name + ' - ' + scoresArray[4].score) : $('#5th').html('---');
