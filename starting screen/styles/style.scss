@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Droid Serif', serif;
+    font-family: 'Permanent Marker', cursive;
 }
 
 
@@ -24,20 +24,20 @@
             color: #477AFB; 
             letter-spacing: 2px;
             font-size: 65px; 
-            font-weight: normal; 
+            font-weight: bold; 
             line-height: 60px; 
             margin: 10px 0 20px; 
             text-transform: uppercase; 
             margin-bottom: 60px;
+            text-shadow: 2px 2px #00D6FF;
         }
 
         label {
             font-size: 24px;
             text-transform: uppercase; 
-            font-weight: normal; 
+            font-weight: bold; 
             line-height: 60px; 
-            color: #089DD2;
-            
+            color: #FFFFFF;           
         }
     
         #difficulties {
@@ -50,6 +50,11 @@
             background: #F2F2E3 url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
             margin: 0 auto;
             margin-bottom: 100px;
+
+            @media only screen and (max-width: 768px) {
+                width: 250px;
+                background: #F2F2E3 url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 219px center;            
+            }
         
             select {
                 border: 0;
@@ -61,6 +66,10 @@
                 width: 378px;
                 *width: 350px;
                 -webkit-appearance: none;
+
+                @media only screen and (max-width: 768px) {
+                    width: 250px;
+                }
         
                 option {
                     color: black;

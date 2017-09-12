@@ -26,13 +26,22 @@
             font-weight: normal; 
             line-height: 60px; 
             text-transform: uppercase; 
-            // margin-top: -80px;
+            
+            @media only screen and (max-width: 768px) {
+                font-size: 48px;
+                margin-right: 10px;
+            }
         }
 
         p {
             font-size: 32px;
             color: #FFFFFF;
             margin-bottom: 80px;
+
+            @media only screen and (max-width: 768px) {
+                font-size: 24px;
+                margin-right: 10px;
+            }
             
             #finalScore {
                 color: #FF0000;
@@ -47,11 +56,14 @@
         
         a {
             display: table;
-            // margin-top: 80px;
             text-transform: uppercase; 
             font-weight: normal; 
             width: 400px;
             margin: 10px auto;
+
+            @media only screen and (max-width: 768px) {
+                width: 300px;
+            }
         }
     
       }

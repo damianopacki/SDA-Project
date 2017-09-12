@@ -25,10 +25,18 @@
       font-weight: normal;
       line-height: 60px;
       text-transform: uppercase; }
+      @media only screen and (max-width: 768px) {
+        .container .row h1 {
+          font-size: 48px;
+          margin-right: 10px; } }
     .container .row p {
       font-size: 32px;
       color: #FFFFFF;
       margin-bottom: 80px; }
+      @media only screen and (max-width: 768px) {
+        .container .row p {
+          font-size: 24px;
+          margin-right: 10px; } }
       .container .row p #finalScore {
         color: #FF0000;
         text-decoration: underline; }
@@ -41,3 +49,6 @@
       font-weight: normal;
       width: 400px;
       margin: 10px auto; }
+      @media only screen and (max-width: 768px) {
+        .container .row a {
+          width: 300px; } }

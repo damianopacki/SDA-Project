@@ -16,15 +16,14 @@ const memoryGame = {
             memoryGame.gameArray = memoryGame.easyArray;
             memoryGame.createBoard(memoryGame.easyArray);
             $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
-            $('.tile').css({'width': '240px', 'height': '220px'});    
+            $('.tile').css({'width': '220px', 'height': '210px'});    
             memoryGame.checkDeviceSize();       
         } 
         else if (memoryGame.difficulty === 'Medium') {
             memoryGame.gameArray = memoryGame.mediumArray;            
             memoryGame.createBoard(memoryGame.mediumArray);
-            // $('#gameBoard').css({'position': 'absolute', 'top': '50%', 'left': '50%', 'transform': 'translate(-50%, -50%)'});
             $('#gameBoard').css({'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});            
-            $('.tile').css({'width': '160px', 'height': '160px', 'font-size': '42px'}); 
+            $('.tile').css({'width': '160px', 'height': '150px', 'font-size': '42px'}); 
             memoryGame.checkDeviceSize();                   
         } 
         else {
@@ -54,10 +53,10 @@ const memoryGame = {
         let deviceWidth = $(window).width();
         console.log('deviceSize: ', deviceWidth);
         if (deviceWidth <= 768 && memoryGame.difficulty === 'Easy') {
-            $('.tile').css({'width': '140px', 'height': '125px'});
+            $('.tile').css({'width': '10px', 'height': '10px'});
         }
         else if (deviceWidth <= 768 && memoryGame.difficulty === 'Medium') {
-            $('.tile').css({'width': '80px', 'height': '70px'});
+            $('.tile').css({'width': '10px', 'height': '10px'});
         }
         else if (deviceWidth <= 768) {
             $('.tile').css({'width': '10px', 'height': '10px'});      
@@ -86,17 +85,20 @@ const memoryGame = {
             if (memoryGame.memoryValues.length === 0) {
                 memoryGame.memoryValues.push(val);
                 memoryGame.tileIds.push(tile.id);
-            } 
-            else if (memoryGame.memoryValues.length === 1) {
-                memoryGame.memoryValues.push(val);
-                memoryGame.tileIds.push(tile.id);
                 console.log('memoryGame.memoryValues', memoryGame.memoryValues);
                 console.log('memoryGame.tileIds: ', memoryGame.tileIds);
+                let firstCard = $(memoryGame.tileIds)[0];
+                $('#' + firstCard).addClass('reverted');
+            } 
+            else if (memoryGame.memoryValues.length === 1) {
+                let firstCard = $(memoryGame.tileIds)[0];
+                
+                    $('#' + firstCard).removeClass('reverted');                                                    
+                memoryGame.memoryValues.push(val);
+                memoryGame.tileIds.push(tile.id);
                 if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {     
                     let card1 = $(memoryGame.tileIds)[0];
-                    let card2 = $(memoryGame.tileIds)[1];  
-                    console.log('card1: ', card1);
-                    console.log('card2: ', card2);         
+                    let card2 = $(memoryGame.tileIds)[1];         
                     $('#' + card1).addClass('reverted');
                     $('#'+ card2).addClass('reverted');                                                  
                     memoryGame.tilesReverted += 2;
