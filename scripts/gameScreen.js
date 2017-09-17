@@ -208,7 +208,7 @@ var sideMenu = {
                 currentTime += timeGap;
                 if (currentTime >= endTime) {
                     sideMenu.timer.css('color','red');
-                    document.location.href = "file:///C:/Users/Damian/Documents/SDA-Project/lose%20screen/index.html";
+                    document.location.href = "../lose screen/index.html";
                 }
             }
             // Update Gui
