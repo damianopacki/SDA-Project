@@ -2,7 +2,7 @@ var memoryGame = {
     gameArray: [],
     easyArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png'],
     mediumArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png', '../imgs/10.png', '../imgs/10.png', '../imgs/11.png', '../imgs/11.png', '../imgs/12.png', '../imgs/12.png', '../imgs/13.png', '../imgs/13.png', '../imgs/14.png', '../imgs/14.png', '../imgs/15.png', '../imgs/15.png', '../imgs/16.png', '../imgs/16.png', '../imgs/17.png', '../imgs/17.png', '../imgs/18.png', '../imgs/18.png'],
-    hardArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png', '../imgs/10.png', '../imgs/10.png', '../imgs/11.png', '../imgs/11.png', '../imgs/12.png', '../imgs/12.png', '../imgs/13.png', '../imgs/13.png', '../imgs/14.png', '../imgs/14.png', '../imgs/15.png', '../imgs/15.png', '../imgs/16.png', '../imgs/16.png', '../imgs/17.png', '../imgs/17.png', '../imgs/18.png', '../imgs/18.png', '../imgs/19.png', '../imgs/19.png', '../imgs/20.png', '../imgs/20.png', '../imgs/21.png', '../imgs/21.png', '../imgs/22.png', '../imgs/22.png', '../imgs/23.png', '../imgs/23.png', '../imgs/24.png', '../imgs/24.png', '../imgs/25.png', '../imgs/25.png', '../imgs/26.png', '../imgs/26.png', '../imgs/27.png', '../imgs/27.png', '../imgs/28.png', '../imgs/28.png', '../imgs/29.png', '../imgs/29.png', '../imgs/30.png', '../imgs/30.png', '../imgs/31.png', '../imgs/31.png', '../imgs/32.png', '../imgs/32.png','../imgs/33.png', '../imgs/33.png'],
+    hardArray: ['../imgs/1.png', '../imgs/1.png', '../imgs/2.png', '../imgs/2.png', '../imgs/3.png', '../imgs/3.png', '../imgs/4.png', '../imgs/4.png', '../imgs/5.png', '../imgs/5.png', '../imgs/6.png', '../imgs/6.png', '../imgs/7.png', '../imgs/7.png', '../imgs/8.png', '../imgs/8.png', '../imgs/9.png', '../imgs/9.png', '../imgs/10.png', '../imgs/10.png', '../imgs/11.png', '../imgs/11.png', '../imgs/12.png', '../imgs/12.png', '../imgs/13.png', '../imgs/13.png', '../imgs/14.png', '../imgs/14.png', '../imgs/15.png', '../imgs/15.png', '../imgs/16.png', '../imgs/16.png', '../imgs/17.png', '../imgs/17.png', '../imgs/18.png', '../imgs/18.png', '../imgs/19.png', '../imgs/19.png', '../imgs/20.png', '../imgs/20.png', '../imgs/21.png', '../imgs/21.png', '../imgs/22.png', '../imgs/22.png', '../imgs/23.png', '../imgs/23.png', '../imgs/24.png', '../imgs/24.png', '../imgs/25.png', '../imgs/25.png', '../imgs/26.png', '../imgs/26.png', '../imgs/27.png', '../imgs/27.png', '../imgs/28.png', '../imgs/28.png', '../imgs/29.png', '../imgs/29.png', '../imgs/30.png', '../imgs/30.png'],
     memoryValues: [],
     tileIds: [],
     tilesReverted: 0,
@@ -15,22 +15,22 @@ var memoryGame = {
         if (memoryGame.difficulty === 'Easy') {
             memoryGame.gameArray = memoryGame.easyArray;
             memoryGame.createBoard(memoryGame.easyArray);
-            $('#gameBoard').css({'display': 'flex', 'display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
-            $('.tile').css({'width': '220px', 'height': '210px'});    
+            $('#gameBoard').css({'display': 'flex', 'display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '40px'});
+            $('.tile').css({'width': '15vw', 'height': '25vh'});    
             memoryGame.checkDeviceSize();       
         } 
         else if (memoryGame.difficulty === 'Medium') {
             memoryGame.gameArray = memoryGame.mediumArray;            
             memoryGame.createBoard(memoryGame.mediumArray);
-            $('#gameBoard').css({'display': 'flex', 'display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});            
-            $('.tile').css({'width': '160px', 'height': '150px', 'font-size': '42px'}); 
+            $('#gameBoard').css({'display': 'flex', 'display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '30px'});            
+            $('.tile').css({'width': '10vw', 'height': '20vh'}); 
             memoryGame.checkDeviceSize();                   
         } 
         else {
             memoryGame.gameArray = memoryGame.hardArray;            
             memoryGame.createBoard(memoryGame.hardArray);
             $('#gameBoard').css({'display': 'flex','display': '-webkit-flex', 'justify-content': 'center', '-webkit-justify-content': 'center', 'align-items': 'center', '-webkit-align-items': 'center', 'flex-wrap': 'wrap', 'margin-top': '20px'});
-            $('.tile').css({'width': '130px', 'height': '100px', 'font-size': '28px'});   
+            $('.tile').css({'width': '9vw', 'height': '12vh'});   
             memoryGame.checkDeviceSize();                   
         } 
     },
@@ -59,10 +59,19 @@ var memoryGame = {
     checkDeviceSize: function() {
         var deviceWidth = $(window).width();
         console.log('deviceSize: ', deviceWidth);
-        if (deviceWidth <= 768 && memoryGame.difficulty === 'Easy') $('.tile').css({'width': '60px', 'height': '40px'});
-        else if (deviceWidth <= 768 && memoryGame.difficulty === 'Medium') $('.tile').css({'width': '110px', 'height': '100px'});
-        else if (deviceWidth <= 768) $('.tile').css({'width': '10px', 'height': '10px'});        
-        else if (deviceWidth >= 768 && deviceWidth <= 1024 && memoryGame.difficulty === 'Easy') $('.tile').css({'width': '180px', 'height': '160px'});    
+        if (deviceWidth <= 768 && memoryGame.difficulty === 'Easy') {
+            $('#gameBoard').css('margin-top', '15px');
+            $('.tile').css({'width': '30vw', 'height': '10vh'});
+        }
+        else if (deviceWidth <= 768 && memoryGame.difficulty === 'Medium') {
+            $('#gameBoard').css('margin-top', '15px');                        
+            $('.tile').css({'width': '30vw', 'height': '10vh'});
+        }
+        else if (deviceWidth <= 768) $('.tile').css({'width': '30vw', 'height': '5vh'});        
+        else if (deviceWidth >= 768 && deviceWidth <= 1024 && memoryGame.difficulty === 'Easy') {
+            $('#gameBoard').css('margin-top', '40px');            
+            $('.tile').css({'width': '20vw', 'height': '16vh'});
+        }  
     },
     countScore: function() {
         if (memoryGame.memoryValues[0] === memoryGame.memoryValues[1]) {
